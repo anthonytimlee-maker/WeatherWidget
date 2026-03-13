@@ -1,0 +1,3 @@
+-keep class com.example.weatherwidget.** { *; }
+-dontwarn okhttp3.**
+-dontwarn okio.**

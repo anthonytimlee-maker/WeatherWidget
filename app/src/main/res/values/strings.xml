@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Weather Widget</string>
+    <string name="widget_name">Weather &amp; Sun</string>
+    <string name="widget_description">Shows current weather and sunrise/sunset times</string>
+    <string name="toggle_location">Toggle GPS/Home location</string>
+    <string name="weather_icon_desc">Weather condition icon</string>
+    <string name="set_home_title">Set Home Location</string>
+    <string name="fetching_location">Fetching current location…</string>
+    <string name="cancel">Cancel</string>
+    <string name="save_as_home">Save as Home</string>
+    <string name="location_saved">Home location saved</string>
+    <string name="no_location">Location unavailable</string>
+    <string name="loading">Loading…</string>
+    <string name="using_gps">Using GPS</string>
+    <string name="using_home">Using Home</string>
+    <string name="no_home_set">No home location set</string>
+    <string name="permission_needed">Location permission required</string>
+</resources>
