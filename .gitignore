@@ -1,0 +1,19 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+
+# APK files
+app/build/
+*.apk
+*.aab
+
+# The committed wrapper jar is a wrong-version placeholder.
+# The correct jar is downloaded by the CI workflow at build time.
+# Do NOT gitignore gradle/wrapper/gradle-wrapper.jar itself - git needs
+# the file to exist (even as placeholder) so the path resolves in CI.
