@@ -197,6 +197,45 @@ class SunWidgetProvider : AppWidgetProvider() {
             gd.draw(canvas)
             return bmp
         }
+
+        private fun fetchWeather(lat: Double, lon: Double): WeatherData? {
+            return runCatching {
+                val url = "https://api.open-meteo.com/v1/forecast?" +
+                        "latitude=$lat&longitude=$lon" +
+                        "&current=temperature_2m,weather_code,surface_pressure" +
+                        "&daily=temperature_2m_max,temperature_2m_min" +
+                        "&temperature_unit=celsius&timezone=auto"
+                
+                val conn = java.net.URL(url).openConnection() as java.net.HttpURLConnection
+                conn.requestMethod = "GET"
+                conn.connectTimeout = 5000
+                conn.readTimeout = 5000
+                
+                val json = conn.inputStream.bufferedReader().use { it.readText() }
+                conn.disconnect()
+                
+                // Simple JSON parsing (no library needed for this small response)
+                val currentTemp = json.substringAfter("\"temperature_2m\":").substringBefore(",").toDoubleOrNull()?.toInt() ?: 0
+                val pressure = json.substringAfter("\"surface_pressure\":").substringBefore(",").toDoubleOrNull()?.toInt() ?: 1013
+                val weatherCode = json.substringAfter("\"weather_code\":").substringBefore(",").toIntOrNull() ?: 0
+                
+                // Daily max/min are arrays - get first element
+                val tempMax = json.substringAfter("\"temperature_2m_max\":[").substringBefore("]").substringBefore(",").toDoubleOrNull()?.toInt() ?: currentTemp
+                val tempMin = json.substringAfter("\"temperature_2m_min\":[").substringBefore("]").substringBefore(",").toDoubleOrNull()?.toInt() ?: currentTemp
+                
+                val condition = when (weatherCode) {
+                    0 -> "Clear"
+                    1, 2, 3 -> "Cloudy"
+                    45, 48 -> "Foggy"
+                    51, 53, 55, 61, 63, 65, 80, 81, 82 -> "Rainy"
+                    71, 73, 75, 77, 85, 86 -> "Snowy"
+                    95, 96, 99 -> "Stormy"
+                    else -> "Clear"
+                }
+                
+                WeatherData(currentTemp, tempMax, tempMin, pressure, weatherCode, condition)
+            }.getOrNull()
+        }
     }
 }
 
