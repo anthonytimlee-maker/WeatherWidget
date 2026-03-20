@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SunWidget</string>
+    <string name="widget_name">Sun Widget</string>
+    <string name="widget_description">Shows today\'s sunrise, sunset, and total daylight with a live Kirchhoff sky background.</string>
+
+    <!-- Content descriptions for accessibility -->
+    <string name="cd_sunrise">Sunrise time</string>
+    <string name="cd_sunset">Sunset time</string>
+    <string name="cd_daylight">Total daylight duration</string>
+
+    <!-- Placeholder values shown before first update -->
+    <string name="placeholder_time">--:-- --</string>
+    <string name="placeholder_duration">--h --m</string>
+
+    <!-- Permission rationale (shown in PermissionActivity if needed) -->
+    <string name="permission_rationale">SunWidget needs your location to calculate accurate sunrise and sunset times using the NOAA solar algorithm. No location data ever leaves your device.</string>
+</resources>

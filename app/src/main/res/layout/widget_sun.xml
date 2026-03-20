@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  widget_sun.xml
+  3 × 1 Android home-screen widget (3 cells wide, 1 cell tall).
+  Android 16 recommended minimum: 252 dp × 58 dp.
+  Actual size depends on launcher cell dimensions.
+
+  Structure:
+    FrameLayout (root — receives tap PendingIntent)
+      ImageView  iv_background  (GradientDrawable rendered as Bitmap)
+      LinearLayout (vertical — the three info rows)
+        Row 1: iv_icon_sunrise + tv_sunrise
+        Row 2: iv_icon_sunset  + tv_sunset
+        Row 3: iv_icon_daylight + tv_daylight
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4dp">
+
+    <!-- Gradient sky background — filled programmatically as a Bitmap -->
+    <ImageView
+        android:id="@+id/iv_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:contentDescription="@null" />
+
+    <!-- Content overlay -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <!-- Row 1: Sunrise -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv_icon_sunrise"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_sunrise"
+                android:contentDescription="@string/cd_sunrise" />
+
+            <TextView
+                android:id="@+id/tv_sunrise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.01"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@string/placeholder_time" />
+        </LinearLayout>
+
+        <!-- Row 2: Sunset -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv_icon_sunset"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_sunset"
+                android:contentDescription="@string/cd_sunset" />
+
+            <TextView
+                android:id="@+id/tv_sunset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.01"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@string/placeholder_time" />
+        </LinearLayout>
+
+        <!-- Row 3: Daylight duration -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv_icon_daylight"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_clock"
+                android:contentDescription="@string/cd_daylight" />
+
+            <TextView
+                android:id="@+id/tv_daylight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.01"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@string/placeholder_duration" />
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

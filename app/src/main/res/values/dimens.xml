@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material 3 pill corner radius for the widget container -->
+    <dimen name="widget_corner_radius">28dp</dimen>
+
+    <!-- Internal padding for the widget content -->
+    <dimen name="widget_padding_horizontal">14dp</dimen>
+    <dimen name="widget_padding_vertical">6dp</dimen>
+
+    <!-- Icon size inside each row -->
+    <dimen name="widget_icon_size">13dp</dimen>
+
+    <!-- Gap between icon and time text -->
+    <dimen name="widget_icon_text_gap">9dp</dimen>
+
+    <!-- Text size for time values -->
+    <dimen name="widget_text_size">13sp</dimen>
+</resources>

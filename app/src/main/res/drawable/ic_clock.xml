@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Clock icon — circle face with hour and minute hands.
+  Used for Row 3 (total daylight duration) of the widget.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Clock face circle -->
+    <path
+        android:pathData="M12,3.5A8.5,8.5 0,1 1,3.5 12A8.5,8.5 0,0 1,12 3.5Z"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.6"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Minute hand (pointing to ~2 o'clock position) -->
+    <path
+        android:pathData="M12,7.5L12,12"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round" />
+
+    <!-- Hour hand (pointing to ~4 o'clock position) -->
+    <path
+        android:pathData="M12,12L15,14"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round" />
+</vector>

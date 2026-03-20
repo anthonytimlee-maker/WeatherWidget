@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Material 3 theme for the app (PermissionActivity) -->
+    <style name="Theme.SunWidget" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand_sunrise</item>
+        <item name="colorPrimaryVariant">@color/brand_night</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSurface">@color/brand_night</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Fully transparent theme for PermissionActivity trampoline -->
+    <style name="Theme.SunWidget.Transparent" parent="Theme.SunWidget">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+</resources>

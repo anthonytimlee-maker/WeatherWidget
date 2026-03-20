@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App brand colours -->
+    <color name="brand_night">#050a1a</color>
+    <color name="brand_sunrise">#D05820</color>
+    <color name="brand_noon">#2A78C0</color>
+
+    <!-- Widget gradient palette — Kirchhoff / Planckian locus stops -->
+    <!-- Night (~800 K) -->
+    <color name="sky_night_0">#050a1a</color>
+    <color name="sky_night_1">#0f1535</color>
+    <color name="sky_night_2">#1a2050</color>
+
+    <!-- Pre-dawn (~1200–1500 K) -->
+    <color name="sky_predawn_0">#0d0820</color>
+    <color name="sky_predawn_1">#2a1248</color>
+    <color name="sky_predawn_2">#6b2540</color>
+    <color name="sky_predawn_3">#c04020</color>
+
+    <!-- Sunrise (~2000–2500 K) -->
+    <color name="sky_sunrise_0">#1a0f2e</color>
+    <color name="sky_sunrise_1">#7a2830</color>
+    <color name="sky_sunrise_2">#d05820</color>
+    <color name="sky_sunrise_3">#f0a040</color>
+
+    <!-- Morning (~3000–5500 K) -->
+    <color name="sky_morning_0">#e07030</color>
+    <color name="sky_morning_1">#f0b050</color>
+    <color name="sky_morning_2">#f8d880</color>
+    <color name="sky_morning_3">#b0d8f0</color>
+
+    <!-- Midday (~6500–9000 K) -->
+    <color name="sky_noon_0">#2a78c0</color>
+    <color name="sky_noon_1">#50a0e0</color>
+    <color name="sky_noon_2">#88caf5</color>
+    <color name="sky_noon_3">#c8e8ff</color>
+
+    <!-- Golden hour (~2200–3000 K) -->
+    <color name="sky_golden_0">#c84010</color>
+    <color name="sky_golden_1">#e87028</color>
+    <color name="sky_golden_2">#f5b040</color>
+    <color name="sky_golden_3">#fce8a0</color>
+
+    <!-- Sunset (~1500–2000 K) -->
+    <color name="sky_sunset_0">#1a0828</color>
+    <color name="sky_sunset_1">#601830</color>
+    <color name="sky_sunset_2">#c04020</color>
+    <color name="sky_sunset_3">#e88030</color>
+
+    <!-- Dusk (~800–1200 K) -->
+    <color name="sky_dusk_0">#060412</color>
+    <color name="sky_dusk_1">#180c30</color>
+    <color name="sky_dusk_2">#3a1848</color>
+</resources>
