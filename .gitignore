@@ -1,0 +1,19 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# APKs — don't commit built artefacts
+*.apk
+*.aab
+
+# Keystore — never commit signing keys
+*.jks
+*.keystore
+keystore.properties
