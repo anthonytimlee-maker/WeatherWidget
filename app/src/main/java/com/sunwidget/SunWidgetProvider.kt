@@ -66,6 +66,15 @@ class SunWidgetProvider : AppWidgetProvider() {
         private const val KEY_RISE_MINS = "last_sunrise_mins"
         private const val KEY_SET_MINS  = "last_sunset_mins"
 
+        data class WeatherData(
+            val tempCurrent: Int,
+            val tempHigh: Int,
+            val tempLow: Int,
+            val pressure: Int,
+            val weatherCode: Int,
+            val condition: String
+        )
+
         fun updateWidget(context: Context, manager: AppWidgetManager, widgetId: Int) {
             val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
