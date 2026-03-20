@@ -109,6 +109,19 @@ class SunWidgetProvider : AppWidgetProvider() {
                 .putFloat(KEY_SET_MINS,   solar.sunsetMinutes.toFloat())
                 .apply()
 
+            // ── 3. Fetch and cache weather data (background only, UI unchanged) ──
+            val weather = fetchWeather(lat, lon)
+            if (weather != null) {
+                prefs.edit()
+                    .putInt(KEY_TEMP_CURRENT, weather.tempCurrent)
+                    .putInt(KEY_TEMP_HIGH, weather.tempHigh)
+                    .putInt(KEY_TEMP_LOW, weather.tempLow)
+                    .putInt(KEY_PRESSURE, weather.pressure)
+                    .putInt(KEY_WEATHER_CODE, weather.weatherCode)
+                    .putString(KEY_CONDITION, weather.condition)
+                    .apply()
+            }
+
             renderViews(context, manager, widgetId,
                 solar.sunriseFormatted, solar.sunsetFormatted, solar.daylightFormatted, phase)
         }
