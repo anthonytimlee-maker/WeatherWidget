@@ -52,7 +52,10 @@ class SunWidgetProvider : AppWidgetProvider() {
     companion object {
         const val ACTION_REFRESH = "com.sunwidget.ACTION_REFRESH"
 
-        private const val KEY_TEST = "test"
+        private const val KEY_TEMP_CURRENT = "last_temp_current"
+        private const val KEY_TEMP_HIGH    = "last_temp_high"
+        private const val KEY_TEMP_LOW     = "last_temp_low"
+        
         private const val PREFS_NAME    = "com.sunwidget.prefs"
         private const val KEY_SUNRISE   = "last_sunrise"
         private const val KEY_SUNSET    = "last_sunset"
