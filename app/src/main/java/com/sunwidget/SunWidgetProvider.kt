@@ -55,6 +55,9 @@ class SunWidgetProvider : AppWidgetProvider() {
         private const val KEY_TEMP_CURRENT = "last_temp_current"
         private const val KEY_TEMP_HIGH    = "last_temp_high"
         private const val KEY_TEMP_LOW     = "last_temp_low"
+        private const val KEY_PRESSURE     = "last_pressure"
+        private const val KEY_WEATHER_CODE = "last_weather_code"
+        private const val KEY_CONDITION    = "last_condition"
         
         private const val PREFS_NAME    = "com.sunwidget.prefs"
         private const val KEY_SUNRISE   = "last_sunrise"
