@@ -84,12 +84,25 @@ class SunWidgetProvider : AppWidgetProvider() {
             val cachedDay     = prefs.getString(KEY_DAYLIGHT, null)
             val cachedRiseMins = prefs.getFloat(KEY_RISE_MINS, -1f).toDouble()
             val cachedSetMins  = prefs.getFloat(KEY_SET_MINS,  -1f).toDouble()
+            
+            // Load cached weather
+            val cachedTempCurrent = prefs.getInt(KEY_TEMP_CURRENT, Int.MIN_VALUE)
+            val cachedWeather = if (cachedTempCurrent != Int.MIN_VALUE) {
+                WeatherData(
+                    tempCurrent = cachedTempCurrent,
+                    tempHigh = prefs.getInt(KEY_TEMP_HIGH, cachedTempCurrent),
+                    tempLow = prefs.getInt(KEY_TEMP_LOW, cachedTempCurrent),
+                    pressure = prefs.getInt(KEY_PRESSURE, 1013),
+                    weatherCode = prefs.getInt(KEY_WEATHER_CODE, 0),
+                    condition = prefs.getString(KEY_CONDITION, null) ?: "Clear"
+                )
+            } else null
 
             if (cachedRise != null && cachedRiseMins >= 0) {
                 val cal   = Calendar.getInstance()
                 val phase = KirchhoffSky.phaseForTime(cal, cachedRiseMins, cachedSetMins)
                 renderViews(context, manager, widgetId,
-                    cachedRise, cachedSet ?: "--:--", cachedDay ?: "--h --m", phase)
+                    cachedRise, cachedSet ?: "--:--", cachedDay ?: "--h --m", phase, cachedWeather)
             }
 
             // ── 2. Recalculate with fresh location, save, re-render ───────────
@@ -123,7 +136,7 @@ class SunWidgetProvider : AppWidgetProvider() {
             }
 
             renderViews(context, manager, widgetId,
-                solar.sunriseFormatted, solar.sunsetFormatted, solar.daylightFormatted, phase)
+                solar.sunriseFormatted, solar.sunsetFormatted, solar.daylightFormatted, phase, weather)
         }
 
         private fun renderViews(
@@ -133,7 +146,8 @@ class SunWidgetProvider : AppWidgetProvider() {
             sunrise: String,
             sunset: String,
             daylight: String,
-            phase: KirchhoffSky.SkyPhase
+            phase: KirchhoffSky.SkyPhase,
+            weather: WeatherData? = null
         ) {
             val gradColors   = KirchhoffSky.gradientColors(phase)
             val midColor     = gradColors[gradColors.size / 2]
@@ -157,6 +171,14 @@ class SunWidgetProvider : AppWidgetProvider() {
             views.setTextViewText(R.id.tv_daylight, daylight)
             views.setTextColor(R.id.tv_daylight, contentColor)
             views.setInt(R.id.iv_icon_daylight, "setColorFilter", contentColor)
+
+            // Weather row
+            views.setTextColor(R.id.tv_temp_current, contentColor)
+            views.setTextColor(R.id.tv_weather_condition, contentColor)
+            if (weather != null) {
+                views.setTextViewText(R.id.tv_temp_current, "${weather.tempCurrent}°")
+                views.setTextViewText(R.id.tv_weather_condition, weather.condition)
+            }
 
             val tapIntent = Intent(context, SunWidgetProvider::class.java).apply {
                 action = ACTION_REFRESH
