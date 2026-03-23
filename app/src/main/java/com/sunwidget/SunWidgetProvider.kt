@@ -158,7 +158,7 @@ class SunWidgetProvider : AppWidgetProvider() {
 
             val cornerPx = context.resources.getDimensionPixelSize(R.dimen.widget_corner_radius)
             views.setImageViewBitmap(R.id.iv_background,
-                buildGradientBitmap(gradColors, cornerPx.toFloat(), 400, 110))
+                buildGradientBitmap(gradColors, cornerPx.toFloat(), 560, 110))
 
             views.setTextViewText(R.id.tv_sunrise, sunrise)
             views.setTextColor(R.id.tv_sunrise, contentColor)
